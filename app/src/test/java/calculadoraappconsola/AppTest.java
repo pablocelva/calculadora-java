@@ -7,8 +7,24 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    
+    @Test
+    void testSumar() {
+        assertEquals(8, App.sumar(5, 3));
+    }
+
+    @Test
+    void testMultiplicar() {
+        assertEquals(15, App.multiplicar(5, 3));
+    }
+
+    @Test
+    void testDividir() {
+        assertEquals(2, App.dividir(10, 5));
+    }
+
+    @Test
+    void testRestar() {
+        assertEquals(2, App.restar(10, 5));
     }
 }
