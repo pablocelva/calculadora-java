@@ -14,17 +14,24 @@ class AppTest {
     }
 
     @Test
+    void testRestar() {
+        assertEquals(2, App.restar(10, 5));
+    }
+
+    @Test
     void testMultiplicar() {
         assertEquals(15, App.multiplicar(5, 3));
     }
 
     @Test
-    void testDividir() {
+    void testDividir() { //Division entera
         assertEquals(2, App.dividir(10, 5));
     }
 
     @Test
-    void testRestar() {
-        assertEquals(2, App.restar(10, 5));
+    void testDividirPorCero() {
+        assertThrows(ArithmeticException.class, () -> {
+            App.dividir(10, 0);
+        });
     }
 }
