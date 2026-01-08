@@ -23,19 +23,19 @@ public class App {
         /** Scanner utilizado para leer datos desde teclado */
         Scanner scanner = new Scanner(System.in);
 
-        /** Primer número ingresado por el usuario */
+        // Primer número ingresado por el usuario 
         int num1 = 0;
         
-        /** Segundo número ingresado por el usuario */
+        // Segundo número ingresado por el usuario
         int num2 = 0;
         
-        /** Resultado de la operación matemática */
+        // Resultado de la operación matemática
         int resultado = 0;
         
-        /** Acción ingresada por el usuario para continuar o detener la app */
+        // Acción ingresada por el usuario para continuar o detener la app
         String accionUsuario = "";
         
-        /** Operador matemático seleccionado por el usuario */
+        // Operador matemático seleccionado por el usuario
         String operador = "";
 
         System.out.println("Bienvenido a la calculadora de consola");
@@ -50,6 +50,7 @@ public class App {
                 System.out.println("Ingrese el operador (+ - * /):");
                 operador = scanner.next();
 
+                // Se evalúa el operador ingresado para ejecutar la operación correspondiente
                 switch (operador) {
                     case "+":
                         resultado = App.sumar(num1, num2);
@@ -61,7 +62,11 @@ public class App {
                         resultado = App.multiplicar(num1, num2);
                         break;
                     case "/":
-                        resultado = App.dividir(num1, num2);
+                        if (num2 == 0) {
+                            System.out.println("No se puede dividir por cero");
+                        } else {
+                            resultado = App.dividir(num1, num2);
+                        }
                         break;
                     default:
                         System.out.println("Operador no reconocido");
@@ -78,7 +83,7 @@ public class App {
                 System.out.println("'Stop' para detener la app, 's' para seguir");
                 accionUsuario = scanner.next();
             }
-        } while (!accionUsuario.toLowerCase().equals("stop"));
+        } while (!accionUsuario.equalsIgnoreCase("stop"));
         System.out.println("Gracias por usar la calculadora de consola. ¡Hasta luego!");
         scanner.close();
     }
